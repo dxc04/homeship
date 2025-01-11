@@ -1,0 +1,27 @@
+<div hx-target="this" hx-swap="outerHTML" class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+    {{ if valid }}
+        <input
+            hx-post="/register/validate-email"
+            hx-indicator="#ind"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+            type="email"
+            id="email"
+            name="email"
+            value="{{ email }}"
+        >
+    {{ else }}
+        <input
+            hx-post="/register/validate-email"
+            hx-indicator="#ind"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 border-red-500"
+            type="email"
+            id="email"
+            name="email"
+            value="{{ email }}"
+        >
+        <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+			Invalid email.
+		</span>
+    {{ /if }}
+</div>

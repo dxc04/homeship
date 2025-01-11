@@ -1,0 +1,43 @@
+<form 
+    hx-post="/login"
+    HX-Redirect
+>
+    <h1 class="font-bold text-2xl text-center">Login</h1>
+
+    <div class="min-h-14">
+        {{ if genericError }}
+        <span class="rounded border border-red-600 flex items-center font-medium tracking-wide bg-red-100 text-xs mt-1 ml-1 p-3">
+            {{ genericError }}
+        </span>
+        {{ /if }}
+    </div>
+
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+        <input
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+            type="email"
+            id="email"
+            name="email"
+            value="{{ data?.email }}"
+        >
+        {{ if errors?.email }}
+        <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+			{{ errors?.email }}
+		</span>
+        {{ /if }}
+    </div>
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
+        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+        type="password" id="password" name="password" value="{{ data?.password }}">
+
+        {{ if errors?.password }}
+        <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+			{{ errors?.password }}
+		</span>
+        {{ /if }}
+    </div>
+
+    <input type="submit" class="block text-center text-white bg-indigo-500 p-3 duration-300 rounded-md hover:bg-indigo-400 w-full" value="Login" />
+</form>

@@ -1,0 +1,141 @@
+<!DOCTYPE html">
+<html>
+    <head>
+        <title>{{ title }}</title>
+
+
+        <link href="/static/styles/styles.css" rel="stylesheet">
+        <script src="/static/js/htmx.min.js"></script>
+        <script defer src="/static/js/alpine.min.js"></script>
+        
+    </head>
+    <body class="leading-normal tracking-normal text-gray-900" style="font-family: 'Source Sans Pro', sans-serif;">
+        <div class="float-root">
+            <div class="min-h-screen float-left flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800">
+                <div class="fixed flex flex-col top-0 left-0 w-64 bg-white h-full border-r">
+                    <div class="flex items-center justify-center h-14 border-b">
+                        <a class="flex items-center text-yellow-500 no-underline hover:no-underline font-bold text-md lg:text-xl"  href="#"> 
+                            <img src ="/static/images/house-traditional.svg" width="23" /> <p class="p-2">{{ appName }}</p>
+                        </a>
+                    </div>
+                    <div class="overflow-y-auto overflow-x-hidden flex-grow">
+                        <ul class="flex flex-col py-4 space-y-1">
+                        {{ for group of navLinks }}
+
+                            <li class="px-5 pt-4">
+                                <div class="flex flex-row items-center">
+                                    <div class="text-xs font-mute tracking-wide text-gray-500 uppercase tracking-wider">{{ group.group }}</div>
+                                </div>
+                            </li>
+                            {{ for link of group.links }}
+                            <li>
+                                <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                                <span class="inline-flex justify-center items-center ml-4">
+                                    <img src="/static/images/main-nav-links/{{ link.icon }}.svg" width="20" height="20" />
+                                </span>
+                                <span class="ml-2 text-sm tracking-wide truncate">{{ link.name }}</span>
+                                <!-- span class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span -->
+                                </a>
+                            </li>
+                            {{ /for }}
+                        {{ /for }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
+            <div class="px-3 py-3 lg:px-5 lg:pl-3">
+                <div class="z-10 flex items-center justify-between">
+                    <div class="flex items-center justify-start rtl:justify-end">
+                        <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                            <span class="sr-only">Open sidebar</span>
+                            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                            </svg>
+                        </button>
+                        <a class="flex items-center text-yellow-500 no-underline hover:no-underline font-bold text-md lg:text-xl"  href="#"> 
+                            <img src ="/static/images/house-traditional.svg" width="23" /> <p class="p-2">{{ appName }}</p>
+                        </a>
+                    </div>
+                    <div class="flex items-center">
+                        <div x-data="{ openSettings: false }" class="z-50 flex items-center ms-3">
+                            <div>
+                                <button x-on:click="openSettings = ! openSettings" type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-2 focus:ring-yellow-300 dark:focus:ring-yellow-600">
+                                    <span class="sr-only">Open user menu</span>
+                                    <div class="w-8 h-8 rounded-full"></div>
+                                </button>
+                            </div>
+                            <div x-show="openSettings" @click.outside="openSettings = false"
+                                class="z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" style="position: absolute; right: 8; top: 40;">
+                                <div class="px-4 py-3" role="none">
+                                    <p class="text-sm text-gray-900 dark:text-white" role="none">
+                                    Neil Sims
+                                    </p>
+                                    <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                                    neil.sims@flowbite.com
+                                    </p>
+                                </div>
+                                <ul class="py-1" role="none">
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0" aria-label="Sidebar">
+            <div class="h-full px-3 pb-4 overflow-y-auto bg-white">
+                    <ul class="flex flex-col py-4 space-y-1">
+                    {{ for group of navLinks }}
+
+                        <li class="px-5 pt-4">
+                            <div class="flex flex-row items-center">
+                                <div class="text-xs font-mute tracking-wide text-gray-500 uppercase tracking-wider">{{ group.group }}</div>
+                            </div>
+                        </li>
+                        {{ for link of group.links }}
+                        <li>
+                            <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                            <span class="inline-flex justify-center items-center ml-4">
+                                <img src="/static/images/main-nav-links/{{ link.icon }}.svg" width="20" height="20" />
+                            </span>
+                            <span class="ml-2 text-sm tracking-wide truncate">{{ link.name }}</span>
+                            <!-- span class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span -->
+                            </a>
+                        </li>
+                        {{ /for }}
+                    {{ /for }}
+                    </ul>
+            </div>
+        </aside>
+
+        <div class="p-4 sm:ml-64">
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+            <div class="grid grid-cols-3 gap-4 mb-4">
+
+            </div>
+        </div>
+        </div>
+
+
+
+
+
+    </body>
+</html>

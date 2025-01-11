@@ -1,0 +1,1 @@
+ALTER TABLE "sessions" ALTER COLUMN "data" DROP NOT NULL;
