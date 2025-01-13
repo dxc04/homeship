@@ -17,8 +17,8 @@
   "tasks": {
     "start": "deno run --allow-all --watch-hmr main.ts && deno run -A npm:tailwindcss -i ./static/styles/source-styles.css -o ./static/styles/styles.css",
     "tailwind": "deno run -A npm:tailwindcss -i ./static/styles/source-styles.css -o ./static/styles/styles.css --watch",
-    "db:generate": "deno -A --node-modules-dir npm:drizzle-kit generate --config=drizzle-dev.config.ts",
-    "db:migrate": "deno -A --node-modules-dir npm:drizzle-kit migrate --config=drizzle-dev.config.ts"
+    "db:generate": "deno -A --node-modules-dir npm:drizzle-kit generate --config=drizzle.config.ts",
+    "db:migrate": "deno -A --node-modules-dir npm:drizzle-kit migrate --config=drizzle.config.ts"
   },
   "compilerOptions": {
     "jsx": "precompile",
