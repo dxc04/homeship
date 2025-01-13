@@ -40,7 +40,7 @@ app.use("/static/*", serveStatic({ root: "./" }));
 
 app.get("/", async (c) => {
   const template = await vto.run("./views/layouts/landing.vto", {
-    title: "Sweet Homes with Dwello",
+    title: Deno.env.get("APP_NAME"),
     appName: Deno.env.get("APP_NAME"),
   });
 
