@@ -1,4 +1,6 @@
 node_modules
 db/migrations/*
+!db/migrations/.gitkeep 
+
 # Keep environment variables out of version control
 .env
