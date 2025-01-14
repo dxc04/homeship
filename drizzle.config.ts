@@ -5,6 +5,6 @@ export default defineConfig({
   schema: "./db/schema",
   dialect: "postgresql",
   dbCredentials: {
-    url: Deno.env.get("DATABASE_URL")!,
+    url: 'postgresql://dixie:ellie@localhost:5432/neighborly' //Deno.env.get("DATABASE_URL")!,
   },
 });
