@@ -43,12 +43,14 @@ jobs:
 
       - name: Migrate db schema step
         env:
-          APP_NAME: "DIXIE"
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: "deno task db:migrate"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
+        env:
+          APP_NAME: ${{ vars.APP_NAME }}
+          APP_TITLE: ${{ vars.APP_TITLE }}
         with:
           project: ""
           entrypoint: "main.ts"
