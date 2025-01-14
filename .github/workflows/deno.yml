@@ -43,6 +43,7 @@ jobs:
 
       - name: Migrate db schema step
         env:
+          APP_NAME: "DIXIE"
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: "deno task db:migrate"
 
