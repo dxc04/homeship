@@ -40,8 +40,8 @@ app.use("/static/*", serveStatic({ root: "./" }));
 
 app.get("/", async (c) => {
   const template = await vto.run("./views/layouts/landing.vto", {
-    title: Deno.env.get("APP_TITLE"),
-    appName: Deno.env.get("APP_NAME"),
+    title: 'Test', //Deno.env.get("APP_TITLE"),
+    appName: 'Neighborly', Deno.env.get("APP_NAME"),
   });
 
   vto.cache.clear();
