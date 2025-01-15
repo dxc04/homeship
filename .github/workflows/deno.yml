@@ -52,5 +52,6 @@ jobs:
           APP_NAME: ${{ vars.APP_NAME }}
           APP_TITLE: ${{ vars.APP_TITLE }}
         with:
+          project: "neighborly"
           entrypoint: "main.ts"
           root: "."
