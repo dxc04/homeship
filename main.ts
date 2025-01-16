@@ -44,7 +44,6 @@ app.get("/", async (c) => {
     appName: Deno.env.get("APP_NAME")
   });
 
-  vto.cache.clear();
   return c.html(template.content);
 });
 
