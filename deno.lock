@@ -4,6 +4,7 @@
     "jsr:@jcs224/hono-sessions@*": "0.7.0",
     "jsr:@std/dotenv@*": "0.225.2",
     "npm:@hono/zod-validator@~0.4.1": "0.4.1_hono@4.6.11_zod@3.23.8",
+    "npm:@neondatabase/serverless@~0.10.4": "0.10.4",
     "npm:@types/node@*": "22.5.4",
     "npm:@types/pg@^8.11.10": "8.11.10",
     "npm:autoprefixer@^10.4.20": "10.4.20_postcss@8.4.49",
@@ -246,6 +247,12 @@
         "@jridgewell/sourcemap-codec"
       ]
     },
+    "@neondatabase/serverless@0.10.4": {
+      "integrity": "sha512-2nZuh3VUO9voBauuh+IGYRhGU/MskWHt1IuZvHcJw6GLjDgtqj/KViKo7SIrLdGLdot7vFbiRRw+BgEy3wT9HA==",
+      "dependencies": [
+        "@types/pg@8.11.6"
+      ]
+    },
     "@nodelib/fs.scandir@2.1.5": {
       "integrity": "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==",
       "dependencies": [
@@ -277,6 +284,14 @@
     },
     "@types/pg@8.11.10": {
       "integrity": "sha512-LczQUW4dbOQzsH2RQ5qoeJ6qJPdrcM/DcMLoqWQkMLMsq83J5lAX3LXjdkWdpscFy67JSOWDnh7Ny/sPFykmkg==",
+      "dependencies": [
+        "@types/node",
+        "pg-protocol",
+        "pg-types@4.0.2"
+      ]
+    },
+    "@types/pg@8.11.6": {
+      "integrity": "sha512-/2WmmBXHLsfRqzfHW7BNZ8SbYzE8OSk7i3WjFYvfgRHj7S1xj+16Je5fUKv3lVdVzk/zn9TXOqf+avFCFIE0yQ==",
       "dependencies": [
         "@types/node",
         "pg-protocol",
@@ -431,7 +446,7 @@
     "drizzle-orm@0.36.4_@types+pg@8.11.10_pg@8.13.1": {
       "integrity": "sha512-1OZY3PXD7BR00Gl61UUOFihslDldfH4NFRH2MbP54Yxi0G/PKn4HfO65JYZ7c16DeP3SpM3Aw+VXVG9j6CRSXA==",
       "dependencies": [
-        "@types/pg",
+        "@types/pg@8.11.10",
         "pg@8.13.1"
       ]
     },
@@ -1212,6 +1227,7 @@
   "workspace": {
     "dependencies": [
       "npm:@hono/zod-validator@~0.4.1",
+      "npm:@neondatabase/serverless@~0.10.4",
       "npm:@types/pg@^8.11.10",
       "npm:autoprefixer@^10.4.20",
       "npm:drizzle-kit@~0.28.1",

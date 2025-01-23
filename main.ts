@@ -7,11 +7,12 @@ import appPage from "./routes/app/index.ts";
 import registerPage from "./routes/register.ts";
 import LoginPage from "./routes/login.ts";
 import vento from "ventojs";
-import { sessionMiddleware, Session } from "jsr:@jcs224/hono-sessions";
-import SessionStore from "./lib/session_store.ts";
+//import { sessionMiddleware, Session } from "jsr:@jcs224/hono-sessions";
+//import SessionStore from "./lib/session_store.ts";
 
 const vto = vento();
-
+const app = new Hono();
+/*
 type SessionDataTypes = {
   'userId': number
 }
@@ -35,6 +36,7 @@ app.use(
     },
   }),
 );
+*/
 
 app.use("/static/*", serveStatic({ root: "./" }));
 

@@ -1,6 +1,7 @@
 {
   "imports": {
     "@hono/zod-validator": "npm:@hono/zod-validator@^0.4.1",
+    "@neondatabase/serverless": "npm:@neondatabase/serverless@^0.10.4",
     "@types/pg": "npm:@types/pg@^8.11.10",
     "autoprefixer": "npm:autoprefixer@^10.4.20",
     "drizzle-kit": "npm:drizzle-kit@^0.28.1",
