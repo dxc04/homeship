@@ -39,7 +39,7 @@ app.post(
       const data = result.data;
       const user = await UserTable.findUserByEmail(data.email);
       const passwordMatch = (user && user.password) 
-        ? await bcrypt.compare(data.password, user.password)
+        ? bcrypt.compareSync(data.password, user.password)
         : false;
       
       if (!result.success || (!passwordMatch && result.success)) {

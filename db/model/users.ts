@@ -3,7 +3,7 @@ import { usersTable as users, User } from "../schema/users.ts";
 import { db, lower } from "../dbclient.ts";
 import {
   genSaltSync,
-  hash as hashPromise,
+  hashSync,
 } from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
 
 export async function insert(userObj: Pick<User, "email" | "password">) {
@@ -20,5 +20,5 @@ export async function findUserByEmail(email: string) {
 }
 
 export async function hashPassword(password: string) {
-  return await hashPromise(password, genSaltSync(12));
+  return await hashSync(password, genSaltSync(12));
 }
