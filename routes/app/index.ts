@@ -4,7 +4,7 @@ import profile from "./profile.ts";
 
 const app = new Hono();
 const vto = vento();
-/*
+
 app.use('*', async (c: Context, next) => {
   const session = c.get("session");
   const userId = session.get("userId");
@@ -14,7 +14,7 @@ app.use('*', async (c: Context, next) => {
   }
 
   await next(); 
-});*/
+});
 
 // todo: move navLinks as constants to a file
 const navLinks = [

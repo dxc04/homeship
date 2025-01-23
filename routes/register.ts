@@ -10,7 +10,7 @@ const appName = Deno.env.get("APP_NAME");
 
 app.get("/", async (c) => {
   const template = await vto.run("./views/pages/register.vto", {
-    title: `Sweet Homes with ${appName}`,
+    title: `We love ${appName}`,
     appName: appName,
   });
 
