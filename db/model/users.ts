@@ -4,7 +4,7 @@ import { db, lower } from "../dbclient.ts";
 import {
   genSaltSync,
   hash as hashPromise,
-} from "https://deno.land/x/bcrypt/mod.ts";
+} from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
 
 export async function insert(userObj: Pick<User, "email" | "password">) {
   return await db.insert(users).values(userObj).returning();
