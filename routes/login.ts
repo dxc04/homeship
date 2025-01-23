@@ -20,7 +20,7 @@ const vto = vento();
 
 app.get("/", async (c) => {
   const template = await vto.run("./views/pages/login.vto", {
-    title: "Dwello Login",
+    title: Deno.env.get("TITLE"),
     appName: Deno.env.get("APP_NAME"),
   });
 
