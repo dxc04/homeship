@@ -6,7 +6,7 @@ const vto = vento();
 
 app.get("/", async (c) => {
   const template = await vto.run("./views/pages/get-started.vto", {
-    title: "Sweet Homes with Dwello",
+    title: Deno.env.get("APP_TITLE"),
     appName: Deno.env.get("APP_NAME"),
   });
 
