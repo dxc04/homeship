@@ -612,12 +612,21 @@ video {
   position: relative;
 }
 
+.inset-x-0 {
+  left: 0px;
+  right: 0px;
+}
+
 .left-0 {
   left: 0px;
 }
 
 .top-0 {
   top: 0px;
+}
+
+.bottom-0 {
+  bottom: 0px;
 }
 
 .z-10 {
@@ -743,6 +752,11 @@ video {
   display: none;
 }
 
+.size-32 {
+  width: 8rem;
+  height: 8rem;
+}
+
 .h-11 {
   height: 2.75rem;
 }
@@ -771,12 +785,24 @@ video {
   height: 2.5rem;
 }
 
+.h-3\/4 {
+  height: 75%;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
 .min-h-14 {
   min-height: 3.5rem;
 }
 
 .min-h-screen {
   min-height: 100vh;
+}
+
+.min-h-full {
+  min-height: 100%;
 }
 
 .w-4\/12 {
@@ -1067,12 +1093,40 @@ video {
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
 }
 
+.bg-\[url\(\/static\/images\/bg-landing\.png\)\] {
+  background-image: url(/static/images/bg-landing.png);
+}
+
+.bg-\[url\(static\/images\/bg-landing\.png\)\] {
+  background-image: url(static/images/bg-landing.png);
+}
+
+.bg-\[url\(\.\.\/images\/bg-landing\.png\)\] {
+  background-image: url(../images/bg-landing.png);
+}
+
+.bg-\[url\(\.\.\/images\/bg-landing\.svg\)\] {
+  background-image: url(../images/bg-landing.svg);
+}
+
 .bg-cover {
   background-size: cover;
 }
 
+.bg-auto {
+  background-size: auto;
+}
+
 .bg-right {
   background-position: right;
+}
+
+.bg-center {
+  background-position: center;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .p-1 {
@@ -1509,6 +1563,11 @@ video {
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
 

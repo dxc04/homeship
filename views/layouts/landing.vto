@@ -6,7 +6,7 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
         <link href="/static/styles/styles.css" rel="stylesheet">
 
         <style>		
@@ -27,9 +27,7 @@
                     
         </style>
     </head>
-    <body class="leading-normal tracking-normal text-gray-900" style="font-family: 'Domine', sans-serif;   font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;">
+    <body class="leading-normal tracking-normal text-gray-900" style="font-family: 'Domine', sans-serif; font-weight: 700; font-optical-sizing: auto; font-style: normal">
         <div class="h-screen pb-14 bg-right bg-cover">
             <!--Nav-->
             <div class="w-full container mx-auto p-6">
@@ -53,28 +51,19 @@
             </div>
 
             <!--Main-->
-            <div class="container pt-24 md:pt-48 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-                
-                <!--Left Col-->
-                <div class="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
-                    <h1 class="my-4 text-3xl md:text-5xl text-purple-800 font-bold leading-tight text-center md:text-left slide-in-bottom-h1">Main Hero Message to sell your app</h1>
-                    <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-subtitle">Sub-hero message, not too long and not too short. Make it just right!</p>
+            <div class="container pt-24 mx-auto flex justify-center">
+                <div class="flex-row w-full xl:w-3/5">
+                    <h1 class="my-4 text-3xl md:text-5xl text-purple-800 font-bold leading-tight text-center slide-in-bottom-h1" style="font-weight: 800;">We're neighbors afterall...</h1>
+                    <p class="leading-normal text-base mb-8 md:text-3xl text-center slide-in-bottom-subtitle" style="font-weight: 400;">Here is a warm space beyond your neighborhood.</p>
+                </div>
 
-                </div>
-                
-                <!--Right Col-->
-                <div class="w-full xl:w-3/5 py-6 overflow-y-hidden">
-
-                </div>
-                
-                <!--Footer-->
-                <div class="w-full pt-16 pb-6 text-sm text-center md:text-left fade-in">
-                    <a class="text-gray-500 no-underline hover:no-underline" href="#">&copy; App 2019</a>
-                </div>
-                
             </div>
             
-
+             <div class="w-full flex justify-center">
+                <div class="flex-row bg-[url(../images/bg-landing.png)] bg-center bg-no-repeat fade-in flex-row flex justify-center">
+                    <div class="h-full"> <img src="/static/images/bg-landing.svg" /></div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
