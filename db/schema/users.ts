@@ -2,13 +2,13 @@ import {
   boolean,
   index,
   integer,
-  varchar,
+  jsonb,
   pgTable,
   serial,
   text,
-  jsonb,
   timestamp,
   uniqueIndex,
+  varchar,
 } from "drizzle-orm/pg-core";
 import { InferSelectModel, relations } from "drizzle-orm";
 
@@ -71,7 +71,7 @@ export const sessionsTable = pgTable("sessions", {
     { onDelete: "cascade" },
   ),
   data: jsonb("data"),
-  session_token: text("session_token")
+  session_token: text("session_token"),
 }, (table) => ({
   user_id_idx: index("session_user_id_idx").on(table.user_id),
 }));

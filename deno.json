@@ -2,8 +2,10 @@
   "imports": {
     "@hono/zod-validator": "npm:@hono/zod-validator@^0.4.1",
     "@neondatabase/serverless": "npm:@neondatabase/serverless@^0.10.4",
+    "@tailwindcss/cli": "npm:@tailwindcss/cli@^4.0.15",
     "@types/pg": "npm:@types/pg@^8.11.10",
     "autoprefixer": "npm:autoprefixer@^10.4.20",
+    "daisyui": "npm:daisyui@^5.0.9",
     "drizzle-kit": "npm:drizzle-kit@^0.28.1",
     "drizzle-orm": "npm:drizzle-orm@^0.36.4",
     "hono": "npm:hono@^4.6.11",
@@ -11,13 +13,13 @@
     "pg": "npm:pg@^8.13.1",
     "postcss": "npm:postcss@^8.4.49",
     "progres": "npm:progres@^0.0.0",
-    "tailwindcss": "npm:tailwindcss@^3.4.15",
+    "tailwindcss": "npm:tailwindcss@^4.0.15",
     "ventojs": "npm:ventojs@^1.12.12",
     "zod": "npm:zod@^3.23.8"
   },
   "tasks": {
-    "start": "deno run --allow-all --watch-hmr main.ts && deno run -A npm:tailwindcss -i ./static/styles/source-styles.css -o ./static/styles/styles.css",
-    "tailwind": "deno run -A npm:tailwindcss -i ./static/styles/source-styles.css -o ./static/styles/styles.css --watch",
+    "start": "deno run --allow-all --watch-hmr main.ts && deno run -A npm:@tailwindcss/cli -i ./static/styles/source-styles.css -o ./static/styles/styles.css",
+    "tailwind": "deno run -A npm:@tailwindcss/cli -i ./static/styles/source-styles.css -o ./static/styles/styles.css --watch",
     "db:generate": "deno -A --node-modules-dir npm:drizzle-kit generate --config=drizzle.config.ts",
     "db:migrate": "deno -A --node-modules-dir npm:drizzle-kit migrate --config=drizzle.config.ts"
   },

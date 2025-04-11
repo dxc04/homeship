@@ -1,11 +1,12 @@
 <!DOCTYPE html">
-<html>
+<html data-theme="homeship">
     <head>
         <title>{{ title }}</title>
 
-
         <link href="/static/styles/styles.css" rel="stylesheet">
+        <link href="/static/styles/main.css" rel="stylesheet">
         <script src="/static/js/htmx.min.js"></script>
+        <script src="/static/js/htmx-json-enc.js"></script>
         <script defer src="/static/js/alpine.min.js"></script>
         
     </head>
@@ -29,7 +30,7 @@
                             </li>
                             {{ for link of group.links }}
                             <li>
-                                <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+                                <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-yellow-500 pr-6">
                                 <span class="inline-flex justify-center items-center ml-4">
                                     <img src="/static/images/main-nav-links/{{ link.icon }}.svg" width="20" height="20" />
                                 </span>
@@ -45,9 +46,6 @@
             </div>
 
         </div>
-
-
-
 
         <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
             <div class="px-3 py-3 lg:px-5 lg:pl-3">
@@ -75,21 +73,21 @@
                                 class="z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" style="position: absolute; right: 8; top: 40;">
                                 <div class="px-4 py-3" role="none">
                                     <p class="text-sm text-gray-900 dark:text-white" role="none">
-                                    Neil Sims
+                                        {{ user.first_name }}
                                     </p>
                                     <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                                    neil.sims@flowbite.com
+                                        {{ user.email }}
                                     </p>
                                 </div>
                                 <ul class="py-1" role="none">
                                     <li>
-                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Profile</a>
+                                        <a href="/app/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Profile</a>
                                     </li>
                                     <li>
                                         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</a>
                                     </li>
                                     <li>
-                                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
+                                        <a hx-post="/app/logout" HX-Redirect class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
                                     </li>
                                 </ul>
                             </div>
@@ -125,16 +123,22 @@
             </div>
         </aside>
 
-        <div class="p-4 sm:ml-64">
-        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
-            <div class="grid grid-cols-3 gap-4 mb-4">
+        <div class="p-4 sm:ml-64 mt-18">
 
+            <div x-data="{showAlert:false, message: null, type: null, iconDraw: null}" 
+                @show-alert.window="showAlert=true; message=$event.detail.message; type=$event.detail.type; iconDraw=$event.detail.iconDraw"
+                >
+                <div x-show="showAlert" x-effect="if (showAlert) setTimeout(function() {showAlert = false}, 3000)" x-transition:leave.duration.800ms x-cloak role="alert" :class="'alert alert-soft rounded-lg alert-' + type">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 shrink-0 stroke-current">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="iconDraw"></path>
+                    </svg>
+                    <span x-text="message"></span>
+                </div>
+            </div>
+            <div class="p-8 border-2 border-gray-200 border-dashed rounded-lg mt-4">
+                {{ content }}
             </div>
         </div>
-        </div>
-
-
-
 
 
     </body>

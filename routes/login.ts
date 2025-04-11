@@ -7,14 +7,14 @@ import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
 import { Session } from "jsr:@jcs224/hono-sessions";
 
 type SessionDataTypes = {
-  'userId': number
-}
+  "userId": number;
+};
 
 const app = new Hono<{
   Variables: {
-    session: Session<SessionDataTypes>,
-  }
-}>()
+    session: Session<SessionDataTypes>;
+  };
+}>();
 
 const vto = vento();
 
@@ -38,19 +38,22 @@ app.post(
       const session = c.get("session");
       const data = result.data;
       const user = await UserTable.findUserByEmail(data.email);
-      const passwordMatch = (user && user.password) 
+      const passwordMatch = (user && user.password)
         ? bcrypt.compareSync(data.password, user.password)
         : false;
-      
+
       if (!result.success || (!passwordMatch && result.success)) {
         const template = await vto.run(
           "./views/partials/login_form.vto",
-          { 
+          {
             data: result.data,
-            errors: !result.success ? extractFormErrors(result.error) : null, 
-            genericError: !passwordMatch && result.success ? 'Invalid email or password' : null
+            errors: !result.success ? extractFormErrors(result.error) : null,
+            genericError: !passwordMatch && result.success
+              ? "Invalid email or password"
+              : null,
           },
         );
+        vto.cache.clear();
         return c.html(template.content);
       }
 

@@ -12,12 +12,12 @@ export class SessionStore implements Store {
     this.sessions = sessions;
   }
 
-/**
- * Retrieves a session by its session ID.
- *
- * @param {string} sessionId - The ID of the session to retrieve.
- * @returns {Promise<SessionData | undefined>} - A promise that resolves to the session data if found, or undefined if the session does not exist.
- */
+  /**
+   * Retrieves a session by its session ID.
+   *
+   * @param {string} sessionId - The ID of the session to retrieve.
+   * @returns {Promise<SessionData | undefined>} - A promise that resolves to the session data if found, or undefined if the session does not exist.
+   */
 
   /**
    * Retrieves a session by its session ID.

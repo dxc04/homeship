@@ -7,20 +7,20 @@ import appPage from "./routes/app/index.ts";
 import registerPage from "./routes/register.ts";
 import LoginPage from "./routes/login.ts";
 import vento from "ventojs";
-import { sessionMiddleware, Session } from "jsr:@jcs224/hono-sessions";
+import { Session, sessionMiddleware } from "jsr:@jcs224/hono-sessions";
 import SessionStore from "./lib/session_store.ts";
 
 const vto = vento();
 
 type SessionDataTypes = {
-  'userId': number
-}
+  "userId": number;
+};
 
 const app = new Hono<{
   Variables: {
-    session: Session<SessionDataTypes>,
-  }
-}>()
+    session: Session<SessionDataTypes>;
+  };
+}>();
 
 app.use(
   "*",
@@ -29,8 +29,8 @@ app.use(
     encryptionKey: "this-is-a-very-secure-and-long-encryption-key",
     expireAfterSeconds: 900,
     cookieOptions: {
-      sameSite: 'Lax',
-      path: '/',
+      sameSite: "Lax",
+      path: "/",
       httpOnly: true,
     },
   }),
@@ -39,10 +39,9 @@ app.use(
 app.use("/static/*", serveStatic({ root: "./" }));
 
 app.get("/", async (c) => {
-  vto.cache.clear();
   const template = await vto.run("./views/layouts/landing.vto", {
     title: Deno.env.get("APP_TITLE"),
-    appName: Deno.env.get("APP_NAME")
+    appName: Deno.env.get("APP_NAME"),
   });
 
   return c.html(template.content);

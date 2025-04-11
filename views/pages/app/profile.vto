@@ -1,0 +1,14 @@
+{{ layout "../../layouts/app.vto" }}    
+    <div class="container mx-auto px-6 py-2 w-auto">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Profile</h2>
+        <div class="flex flex-col md:flex-row gap-4">
+            <div id="edit-profile-response" class="flex-1 flex-col max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+                {{ include "../../partials/edit_profile_form.vto" }}
+            </div>
+
+            <div id="edit-password-response" class="flex-1 flex-col max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+                {{ include "../../partials/edit_password_form.vto" }}
+            </div>
+        </div>
+    </div>
+{{ /layout }}

@@ -1,3 +1,19 @@
-.dwello {
-  background-color: antiquewhite;
+[x-cloak] {
+  display: none !important;
+}
+
+.alert-error {
+  --alert-color: var(--color-error);
+}
+
+.alert-success {
+  --alert-color: var(--color-success);
+}
+
+.alert-info {
+  --alert-color: var(--color-info);
+}
+
+.alert-warning {
+  --alert-color: var(--color-warning);
 }
