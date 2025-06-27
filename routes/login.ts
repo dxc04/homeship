@@ -2,7 +2,7 @@ import { Context, Hono } from "hono";
 import { extractFormErrors, loginFormSchema } from "../lib/validators.ts";
 import { zValidator } from "@hono/zod-validator";
 import vento from "ventojs";
-import * as UserTable from "../db/model/users.ts";
+import * as UserTable from "../db/model/user.ts";
 import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
 import { Session } from "jsr:@jcs224/hono-sessions";
 
@@ -19,11 +19,11 @@ const app = new Hono<{
 const vto = vento();
 
 app.get("/", async (c) => {
-  const template = await vto.run("./views/pages/login.vto", {
+  const template = await vto.run("./views/pages/public/login.vto", {
     title: Deno.env.get("TITLE"),
     appName: Deno.env.get("APP_NAME"),
   });
-
+  vto.cache.clear();
   return c.html(template.content);
 });
 
@@ -34,7 +34,6 @@ app.post(
     loginFormSchema,
     async (result, c: Context) => {
       vto.cache.clear();
-
       const session = c.get("session");
       const data = result.data;
       const user = await UserTable.findUserByEmail(data.email);
@@ -53,11 +52,14 @@ app.post(
               : null,
           },
         );
-        vto.cache.clear();
+
         return c.html(template.content);
       }
+      
 
-      session.set("userId", user.id);
+      session.set("userRole", user?.roles);
+      session.set("userId", user?.id);
+
       c.res.headers.append("HX-Redirect", "/app");
     },
   ),

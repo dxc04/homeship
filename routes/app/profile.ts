@@ -6,11 +6,12 @@ import {
 } from "../../lib/validators.ts";
 import { zValidator } from "@hono/zod-validator";
 import * as tmpl from "../../lib/template.ts";
-import * as UserTable from "../../db/model/users.ts";
+import * as UserTable from "../../db/model/user.ts";
+import { authorize } from "../../middlewares/authorize.ts";
 
 const app = new Hono();
 
-app.get("/", async (c: Context) => {
+app.get("/", authorize, async (c: Context) => {
   const session = c.get("session");
   const userId = session.get("userId");
   const user = await UserTable.findByUserId(userId);
@@ -29,6 +30,7 @@ app.get("/", async (c: Context) => {
 
 app.post(
   "/edit-profile",
+  authorize,
   zValidator(
     "form",
     editProfileFormSchema,
@@ -62,6 +64,7 @@ app.post(
 
 app.post(
   "/edit-password",
+  authorize,
   zValidator(
     "form",
     editPasswordFormSchema,

@@ -45,6 +45,9 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: "deno task db:migrate"
+      
+      - name: Generate styles
+        run: "deno task tailwind" 
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1

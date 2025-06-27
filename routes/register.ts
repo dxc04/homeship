@@ -2,14 +2,14 @@ import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
 import { extractFormErrors, registerFormSchema } from "../lib/validators.ts";
 import vento from "ventojs";
-import * as User from "../db/model/users.ts";
+import * as User from "../db/model/user.ts";
 
 const app = new Hono();
 const vto = vento();
 const appName = Deno.env.get("APP_NAME");
 
 app.get("/", async (c) => {
-  const template = await vto.run("./views/pages/register.vto", {
+  const template = await vto.run("./views/pages/public/register.vto", {
     title: `We love ${appName}`,
     appName: appName,
   });

@@ -1,13 +1,15 @@
-<html>
+<html data-theme="homeship">
     <head>
         <title>{{ title }}</title>
-        <script src="https://unpkg.com/htmx.org@2.0.3" cross-origin="anonymous"></script>
-        <script src="//unpkg.com/alpinejs" defer></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
         <link href="/static/styles/styles.css" rel="stylesheet">
+
+        <script src="/static/js/htmx.min.js"></script>
+        <script defer src="/static/js/alpine.min.js"></script>
+        <script src="/static/js/event_handler.js"></script>
 
         <style>		
             /* ----------------------------------------------
@@ -27,43 +29,7 @@
                     
         </style>
     </head>
-    <body class="leading-normal tracking-normal text-gray-900" style="font-family: 'Domine', sans-serif; font-weight: 700; font-optical-sizing: auto; font-style: normal">
-        <div class="h-screen pb-14 bg-right bg-cover">
-            <!--Nav-->
-            <div class="w-full container mx-auto p-6">
-                    
-                <div class="w-full flex items-center justify-between">
-                    <a class="flex items-center text-yellow-500 no-underline hover:no-underline font-bold text-3xl lg:text-4xl"  href="#"> 
-                        <img src ="/static/images/house-traditional.svg" width="32" /> <p class="p-2">{{ appName }}</p>
-                    </a>
-                    
-                    <div class="flex w-1/2 justify-end content-center">		
-                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 text-xl" href="/register">
-                            Get Started
-                        </a>
-                        <a class="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 text-xl" href="/login">
-                            Log In
-                        </a>
-                    </div>
-                    
-                </div>
-
-            </div>
-
-            <!--Main-->
-            <div class="container pt-24 mx-auto flex justify-center">
-                <div class="flex-row w-full xl:w-3/5">
-                    <h1 class="my-4 text-3xl md:text-5xl text-purple-800 font-bold leading-tight text-center slide-in-bottom-h1" style="font-weight: 800;">We're neighbors afterall...</h1>
-                    <p class="leading-normal text-base mb-8 md:text-3xl text-center slide-in-bottom-subtitle" style="font-weight: 400;">Here is a warm space beyond your neighborhood.</p>
-                </div>
-
-            </div>
-            
-             <div class="w-full flex justify-center">
-                <div class="flex-row bg-[url(../images/bg-landing.png)] bg-center bg-no-repeat fade-in flex-row flex justify-center">
-                    <div class="h-full"> <img src="/static/images/bg-landing.svg" /></div>
-                </div>
-            </div>
-        </div>
+    <body class="leading-normal tracking-normal text-gray-900" style="font-family: 'Domine', sans-serif; font-weight: 700; font-optical-sizing: auto; font-style: normal;">
+        {{ content }}
     </body>
 </html>

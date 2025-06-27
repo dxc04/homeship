@@ -14,6 +14,7 @@
     "npm:drizzle-kit@*": "0.28.1_esbuild@0.19.12",
     "npm:drizzle-kit@~0.28.1": "0.28.1_esbuild@0.19.12",
     "npm:drizzle-orm@~0.36.4": "0.36.4_@types+pg@8.11.10_pg@8.13.1",
+    "npm:drizzle-seed@~0.3.1": "0.3.1_drizzle-orm@0.36.4__@types+pg@8.11.10__pg@8.13.1_@neondatabase+serverless@0.10.4_@types+pg@8.11.10_pg@8.13.1_postgres@3.4.5",
     "npm:hono-sessions-redis@^1.1.1": "1.1.1",
     "npm:hono@4": "4.6.11",
     "npm:hono@^4.6.11": "4.6.11",
@@ -592,6 +593,22 @@
       "dependencies": [
         "@types/pg@8.11.10",
         "pg@8.13.1"
+      ]
+    },
+    "drizzle-orm@0.36.4_@types+pg@8.11.10_pg@8.13.1_@neondatabase+serverless@0.10.4_postgres@3.4.5": {
+      "integrity": "sha512-1OZY3PXD7BR00Gl61UUOFihslDldfH4NFRH2MbP54Yxi0G/PKn4HfO65JYZ7c16DeP3SpM3Aw+VXVG9j6CRSXA==",
+      "dependencies": [
+        "@neondatabase/serverless",
+        "@types/pg@8.11.10",
+        "pg@8.13.1",
+        "postgres"
+      ]
+    },
+    "drizzle-seed@0.3.1_drizzle-orm@0.36.4__@types+pg@8.11.10__pg@8.13.1_@neondatabase+serverless@0.10.4_@types+pg@8.11.10_pg@8.13.1_postgres@3.4.5": {
+      "integrity": "sha512-F/0lgvfOAsqlYoHM/QAGut4xXIOXoE5VoAdv2FIl7DpGYVXlAzKuJO+IphkKUFK3Dz+rFlOsQLnMNrvoQ0cx7g==",
+      "dependencies": [
+        "drizzle-orm@0.36.4_@types+pg@8.11.10_pg@8.13.1_@neondatabase+serverless@0.10.4_postgres@3.4.5",
+        "pure-rand"
       ]
     },
     "eastasianwidth@0.2.0": {
@@ -1182,6 +1199,9 @@
         "q"
       ]
     },
+    "pure-rand@6.1.0": {
+      "integrity": "sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA=="
+    },
     "q@1.0.1": {
       "integrity": "sha512-18MnBaCeBX9sLRUdtxz/6onlb7wLzFxCylklyO8n27y5JxJYaGLPu4ccyc5zih58SpEzY8QmfwaWqguqXU6Y+A=="
     },
@@ -1446,6 +1466,7 @@
       "npm:daisyui@^5.0.9",
       "npm:drizzle-kit@~0.28.1",
       "npm:drizzle-orm@~0.36.4",
+      "npm:drizzle-seed@~0.3.1",
       "npm:hono-sessions-redis@^1.1.1",
       "npm:hono@^4.6.11",
       "npm:pg@^8.13.1",

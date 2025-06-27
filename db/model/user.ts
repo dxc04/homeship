@@ -33,12 +33,16 @@ export async function update(userObj: User) {
  * @returns {Promise<User | null>} - A promise that resolves to the user if found, or null if the user does not exist.
  */
 export async function findUserByEmail(email: string) {
-  const [user] = await db
-    .select()
-    .from(users)
-    .where(eq(lower(users.email), email.toLowerCase()));
-
-  return user;
+  return await db.query.usersTable.findFirst({
+    where: (users, { eq }) => (eq(users.email, email)),
+    with: {
+      roles: {
+        with: {
+          roleType: { columns: { role_type: true } },
+        }
+      },
+    },
+  });
 }
 
 export async function findByUserId(id: number) {

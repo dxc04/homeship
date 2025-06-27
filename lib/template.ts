@@ -38,6 +38,21 @@ const navLinks = [
 const appTitle = Deno.env.get("APP_TITLE");
 const appName = Deno.env.get("APP_NAME");
 
+export const renderPage = async (
+  page: string = "index",
+  params: { [key: string]: unknown } = {},
+) => {
+  page = "./views/pages/public/" + page + ".vto";
+
+  vto.cache.clear();
+  return await vto.run(page, {
+    title: appTitle,
+    navLinks,
+    appName,
+    ...params,
+  });
+};
+
 export const renderSessionApp = async (
   user: User,
   page: string = "index",

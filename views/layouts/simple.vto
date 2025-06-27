@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
+        <link href="/static/styles/styles.css" rel="stylesheet">
+        <link href="/static/styles/main.css" rel="stylesheet">       
+
+        <script src="/static/js/htmx.min.js"></script>  
+        <script src="/static/js/htmx_ext_response_targets.js"></script>
+        <script src="/static/js/htmx_json_enc.js"></script>
+
+
+        <script defer src="/static/js/alpine.min.js"></script>
+        <script src="/static/js/event_handler.js"></script>
+
+
+    </head>
+    <body hx-ext="response-targets" class="leading-normal tracking-normal text-gray-900" style="font-family: 'Domine', sans-serif; font-weight: 700; font-optical-sizing: auto; font-style: normal;">
+        {{ content }}
+    </body>
+</html>

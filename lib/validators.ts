@@ -1,5 +1,5 @@
 import { z } from "zod";
-import * as User from "../db/model/users.ts";
+import * as User from "../db/model/user.ts";
 import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
 
 const invalid_type_error = "Invalid type provided for this field";

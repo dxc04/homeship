@@ -11,6 +11,7 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 import { InferSelectModel, relations } from "drizzle-orm";
+import { rolesTable } from "./permissions.ts";
 
 export const usersTable = pgTable("users", {
   id: serial("id").primaryKey(),
@@ -20,7 +21,6 @@ export const usersTable = pgTable("users", {
   password: text(),
   email_verified: timestamp(),
   image: text(),
-  is_admin: boolean("is_admin").default(false),
   is_active: boolean("is_active").default(true),
 
   phone_number: text("phone_number"),
@@ -29,12 +29,13 @@ export const usersTable = pgTable("users", {
   emailUniqueIndex: uniqueIndex("emailUniqueIndex").on(table.email),
 }));
 
-export const usersRelations = relations(usersTable, ({ one }) => ({
+export const usersRelations = relations(usersTable, ({ one, many }) => ({
   account: one(accountsTable),
+  roles: many(rolesTable),
 }));
 
 export const accountsTable = pgTable("accounts", {
-  id: serial("id").primaryKey(),
+  id: serial("id").primaryKey(), 
   user_id: integer("user_id").references(
     () => usersTable.id,
     { onDelete: "cascade" },
